@@ -91,7 +91,7 @@ def run():
     all_python_devs = filter( lambda x : x['language'] == 'python', DATA) # Using filter, generate a list with all the python devs
     all_Platzi_workers =  filter( lambda x : x['organization'] == 'Platzi', DATA) # Using filter, generate a list with all the Platzi workers
     adults =  filter( lambda x: x['age']> 18, DATA)# Using filter, generate a list with all people over 18 years old
-    workers = list(map(lambda x: dict(x, **{'Homeless':True}) if x['organization'] == '' else dict(x, **{'Homeless':False}), DATA))
+    workers = list(map(lambda x: dict(x, **{'Homeless': x['organization'] == ''}), DATA))
     old_people = list(map(lambda x: dict(x, **{'old':True}) if x['age'] > 30  else dict(x, **{'Old':False}), DATA))
  # Using map, generate a new list of people with a key 'old' with True or False values, if 'age' is greater than 30 or not
 
